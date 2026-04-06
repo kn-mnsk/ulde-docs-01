@@ -3,6 +3,8 @@ import { LayoutEngine } from '../layout-engine/layout-engine';
 import { InteractiveEngine } from '../interactive-engine/interactive-engine';
 import { PluginRegistry } from '../../plugin-system/registry/plugin-registry';
 import { UldeContext } from './ulde-context';
+import { HeadingAnchorsPlugin } from '../../plugin-system/plugins/heading-anchors/heading-anchors.plugin';
+import { TimingPlugin } from '../../utils/timing/timing.plugin';
 
 export class Ulde {
   private content = new ContentEngine();
@@ -12,8 +14,10 @@ export class Ulde {
 
   constructor() {
     // register built-in plugins here
-    this.plugins.register(require('../../plugin-system/plugins/heading-anchors/heading-anchors.plugin').HeadingAnchorsPlugin);
-    this.plugins.register(require('../../plugin-system/plugins/timing/timing.plugin').TimingPlugin);
+    this.plugins.register(HeadingAnchorsPlugin);
+    // this.plugins.register(require('../../plugin-system/plugins/heading-anchors/heading-anchors.plugin').HeadingAnchorsPlugin);
+    this.plugins.register(TimingPlugin);
+    // this.plugins.register(require('../../plugin-system/plugins/timing/timing.plugin').TimingPlugin);
   }
 
   async render(path: string): Promise<UldeContext> {
