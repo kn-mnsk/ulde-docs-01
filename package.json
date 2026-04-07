@@ -31,6 +31,7 @@
     "express": "^5.1.0",
     "fast-glob": "^3.3.3",
     "glob": "^11.0.3",
+    "markdown-it": "^14.1.1",
     "marked": "^16.2.1",
     "mathjs": "^15.0.0",
     "mermaid": "^11.12.2",
@@ -43,6 +44,7 @@
     "@angular/compiler-cli": "^21.2.0",
     "@types/express": "^5.0.1",
     "@types/katex": "^0.16.7",
+    "@types/markdown-it": "^14.1.2",
     "@types/marked": "^5.0.2",
     "@types/node": "^20.17.19",
     "jasmine-core": "~5.9.0",
@@ -53,8 +55,8 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "katex": "^0.16.25",
-    "ts-node": "^10.9.2",
     "prettier": "^3.8.1",
+    "ts-node": "^10.9.2",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"
   }

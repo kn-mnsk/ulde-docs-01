@@ -232,6 +232,42 @@ body[data-theme="light"] {
    Marked
 --------------------------------------------------------- */
 
+.doc-body table {
+  border-collapse: collapse;
+  width: fit-content; //100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  // padding: 5px;
+  font-size: 1rem;
+  border-radius: 3em;
+}
+
+.doc-body table th {
+  // background-color: rgb(206, 14, 78);
+  background-color: red; //var(--table-header-bg);
+}
+.doc-body table th,
+.doc-body table td {
+  // border: 1px solid var(--table-border);
+  border: 1px solid #1bee22;
+  padding: 0.5rem;
+  vertical-align: top;
+}
+
+
+.doc-body table tr:nth-child(even) {
+  background-color: yellow;
+  // background-color: #05252e;
+  border-bottom: solid 1px rgb(227, 219, 219);
+}
+
+.doc-body table tr:nth-child(odd) {
+  background-color: green;
+  // background-color: #ce164a;
+  border-bottom: solid 1px rgb(227, 219, 219);
+}
+
+
 .markdownViewer .md-table-container {
   position: relative;
   display: flex;
