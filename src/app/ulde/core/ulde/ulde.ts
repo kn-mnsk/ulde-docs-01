@@ -5,6 +5,7 @@ import { PluginRegistry } from '../../plugin-system/registry/plugin-registry';
 import { UldeContext } from './ulde-context';
 import { HeadingAnchorsPlugin } from '../../plugin-system/plugins/heading-anchors/heading-anchors.plugin';
 import { TimingPlugin } from '../../utils/timing/timing.plugin';
+import { MermaidPlugin } from '../../plugin-system/plugins/mermaid/mermaid.plugin';
 
 export class Ulde {
   private content = new ContentEngine();
@@ -15,9 +16,8 @@ export class Ulde {
   constructor() {
     // register built-in plugins here
     this.plugins.register(HeadingAnchorsPlugin);
-    // this.plugins.register(require('../../plugin-system/plugins/heading-anchors/heading-anchors.plugin').HeadingAnchorsPlugin);
     this.plugins.register(TimingPlugin);
-    // this.plugins.register(require('../../plugin-system/plugins/timing/timing.plugin').TimingPlugin);
+    this.plugins.register(MermaidPlugin);
   }
 
   async render(path: string): Promise<UldeContext> {
@@ -28,8 +28,10 @@ export class Ulde {
     await this.plugins.runPhase('content', ctx);
 
     // post-content phase
-    ctx.html = this.content.resolveLinks(ctx.raw);
-    await this.plugins.runPhase('post-content', ctx);
+    ctx.html = this.content.renderMarkdown(ctx.raw);
+    ctx.html = this.content.resolveLinks(ctx.html);
+
+    // await this.plugins.runPhase('post-content', ctx);
 
     // layout phase
     ctx.html = this.layout.renderShell(ctx.html);
