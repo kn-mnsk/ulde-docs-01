@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-ulde-layout-shell',
@@ -7,5 +8,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './ulde-layout-shell.scss',
 })
 export class UldeLayoutShell {
-  html = input<string>('');
+  html = input<SafeHtml|string>('');
 }
